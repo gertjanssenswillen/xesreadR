@@ -1,0 +1,12 @@
+---
+title: "xesreadR"
+author: "Gert Janssenswillen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{xesreadR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This package provides functions for reading and writing xes file. Please not that these function are still experimental. For more information, please check <www.bupar.net>
