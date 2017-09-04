@@ -2,13 +2,14 @@
 #' @description Function for writing xes-file
 #' @param eventlog An event log object
 #' @param case_attributes List of columns containing case_attributes
-#' @param file Destination file
+#' @param xesfile Destination file
 #'
 #' @export write_xes
 
 write_xes <- function(eventlog,
-					  file = file.choose(),
+					  xesfile = file.choose(),
 					  case_attributes = NULL) {
+	stop_eventlog(eventlog)
 	e <- eventlog
 	eventlog <- eventlog %>% arrange(!!as.symbol(timestamp(eventlog)))
 
@@ -16,7 +17,7 @@ write_xes <- function(eventlog,
 	if(is.null(case_attributes)){
 		if(any(str_detect(colnames(eventlog), "CASE"))) {
 			case_attributes <- eventlog %>%
-				select(starts_with("CASE_")) %>%
+				select(one_of(c(case_id(e), starts_with("CASE_")))) %>%
 				unique
 
 			sel <- setdiff(colnames(eventlog), colnames(case_attributes))
@@ -39,7 +40,7 @@ write_xes <- function(eventlog,
 				"time:timestamp" = timestamp(e),
 				"concept:instance" = activity_instance_id(e)) %>%
 		select(case_classifier, everything()) -> eventlog
-
-	createXES(file, traces = case_attributes , events = as.data.frame(eventlog), case_classifier = case_id(e))
+	
+	createXES(xesfile, traces = case_attributes , events = as.data.frame(eventlog), case_classifier = case_id(e))
 
 }

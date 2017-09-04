@@ -77,6 +77,12 @@ read_xes <- function(xesfile = file.choose()){
 		case_classifier <- "CASE_ID"
 	}
 
+
+	if(!("concept:name" %in% names(eventlog))) {
+		stop("XES-file does not contain event")
+	}
+
+
 	eventlog %>%
 		rename(activity_id =  `concept:name`) %>%
 		set_names(str_replace_all(names(.),":", "_")) %>%
@@ -100,9 +106,7 @@ read_xes <- function(xesfile = file.choose()){
 			rename(timestamp = time_timestamp) %>%
 			mutate(timestamp = ymd_hms(timestamp)) -> eventlog
 	} else {
-		warning("No timestamp specified in xes-file")
-		eventlog %>%
-			mutate(timestamp = NA) -> eventlog
+		stop("XES-file does not contain timestamp")
 	}
 	if("lifecycle_transition" %in% names(eventlog)) {
 		eventlog %>%
