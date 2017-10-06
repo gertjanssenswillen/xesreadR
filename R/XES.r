@@ -132,12 +132,14 @@ createXES<- function(file,
   ############PRELIMINARIES##################
   defaultvalues <- list("string"="default",
                         "int"="0",
-                        "date"="1970-01-01T00:00:00.000+00:00")
+                        "date"="1970-01-01T00:00:00.000+00:00",
+  					    "boolean" = "false")
   attribute_types <- list("factor"="string",
                           "POSIXct"="date",
                           "integer"="int",
                           "ordered"="string",
-                          "character"="string")
+                          "character"="string",
+  						  "logical" = "boolean")
   trace_attrs <- get_attr_info(traces)
 
   if(is.null(caseid_field)){
