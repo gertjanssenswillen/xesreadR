@@ -1,11 +1,11 @@
 Package: xesreadR
 Type: Package
 Title: Read and Write XES Files
-Version: 0.2.1
-Date: 2017-09-04
-Author: Gert Janssenswillen [aut, cre], Benoît Depaire [ctb]
-Maintainer: Gert Janssenswillen <gert.janssenswillen@uhasselt.be>
-Description: Read and write XES Files to create event log objects used by the 'bupaR' framework. XES (Extensible Event Stream) is the IEEE standard for storing and sharing event data (see <http://standards.ieee.org/findstds/standard/1849-2016.html> for more info).
+Version: 0.2.2
+Date: 2017-12-04
+Authors@R: c(person("Gert","Janssenswillen",email = "gert.janssenswillen@uhasselt.be", role = c("aut","cre")),
+ person("Benoît","Depaire",email = "benoit.depaire@uhasselt.be", role = "ctb"))
+Description: Read and write XES Files to create event log objects used by the 'bupaR' framework. XES (Extensible Event Stream) is the `IEEE` standard for storing and sharing event data (see <http://standards.ieee.org/findstds/standard/1849-2016.html> for more info).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

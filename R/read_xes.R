@@ -6,6 +6,23 @@
 
 read_xes <- function(xesfile = file.choose()){
 
+
+	EVENT_ID <- NULL
+	n_attributes <- NULL
+	attr_id <- NULL
+	type <- NULL
+	value <- NULL
+	key <- NULL
+	case_id <- NULL
+	n_attr <- NULL
+	CASE_ID <- NULL
+	`concept:name` <- NULL
+	CASE_CASE_ID <- NULL
+	org_resource <- NULL
+	time_timestamp <- NULL
+	lifecycle_transition <- NULL
+	concept_instance <- NULL
+
 	xml2::read_xml(xesfile) %>%
 		xml_children() %>%
 		.[xml_name(.) == "trace"] %>%

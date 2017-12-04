@@ -25,8 +25,6 @@
 #' @importFrom utils txtProgressBar
 #' @importFrom utils data
 
-globalVariables(c("case_concept.name","event_concept.name","event_time.timestamp",
-				  ".","EVENT_ID","n_attributes","attr_id","type","value","key",
-				  "n_attr","CASE_ID","concept:name","case_classifier","CASE_CASE_ID", "concept_instance","lifecycle_transition","org_resource", "time_timestamp"))
+globalVariables(".")
 
 NULL

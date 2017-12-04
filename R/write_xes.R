@@ -9,6 +9,9 @@
 write_xes <- function(eventlog,
 					  xesfile = file.choose(),
 					  case_attributes = NULL) {
+
+	case_classifier <- NULL
+
 	stop_eventlog(eventlog)
 	e <- eventlog
 	eventlog <- eventlog %>% arrange(!!as.symbol(timestamp(eventlog)))
@@ -40,7 +43,7 @@ write_xes <- function(eventlog,
 				"time:timestamp" = timestamp(e),
 				"concept:instance" = activity_instance_id(e)) %>%
 		select(case_classifier, everything()) -> eventlog
-	
+
 	createXES(xesfile, traces = case_attributes , events = as.data.frame(eventlog), case_classifier = case_id(e))
 
 }
