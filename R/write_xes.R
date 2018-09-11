@@ -20,7 +20,7 @@ write_xes <- function(eventlog,
 	if(is.null(case_attributes)){
 		if(any(str_detect(colnames(eventlog), "CASE"))) {
 			case_attributes <- eventlog %>%
-				select(one_of(c(case_id(e), starts_with("CASE_")))) %>%
+				select(case_id(e), starts_with("CASE"), force_df = T) %>%
 				unique
 
 			sel <- setdiff(colnames(eventlog), colnames(case_attributes))
