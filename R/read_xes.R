@@ -1,10 +1,13 @@
 #' @title read_xes
 #' @description Extracts eventlog from a xes-file.
 #' @param xesfile Reference to a .xes file, conforming to the xes-standard.
+#' @param validate When 'TRUE' some basic checks are run on the contents of the event log such as that activity instances are not connected to more than one case or activity.
+#'  Using 'FALSE' improves the performance by skipping those checks and allows to import  XES files that do not conform to bupaR requirements.
+#'
 #' @seealso \url{http://www.xes-standard.org/}
 #' @export read_xes
 
-read_xes <- function(xesfile = file.choose()){
+read_xes <- function(xesfile = file.choose(), validate = TRUE){
 
 
 	EVENT_ID <- NULL
@@ -148,7 +151,8 @@ read_xes <- function(xesfile = file.choose()){
 				 activity_instance_id = "activity_instance_id",
 				 timestamp = "timestamp",
 				 lifecycle_id = "lifecycle_id",
-				 resource_id = "resource_id") -> eventlog
+				 resource_id = "resource_id",
+				 validate = validate) -> eventlog
 
 
 	return(eventlog)
