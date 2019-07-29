@@ -1,8 +1,8 @@
 Package: xesreadR
 Type: Package
 Title: Read and Write XES Files
-Version: 0.2.2
-Date: 2017-12-04
+Version: 0.2.3.9000
+Date: 2019-03-19
 Authors@R: c(person("Gert","Janssenswillen",email = "gert.janssenswillen@uhasselt.be", role = c("aut","cre")),
  person("Benoît","Depaire",email = "benoit.depaire@uhasselt.be", role = "ctb"))
 Description: Read and write XES Files to create event log objects used by the 'bupaR' framework. XES (Extensible Event Stream) is the `IEEE` standard for storing and sharing event data (see <http://standards.ieee.org/findstds/standard/1849-2016.html> for more info).
@@ -13,7 +13,9 @@ Depends:
     R(>= 3.0.0)
 Imports:
     bupaR, dplyr, XML, xml2, data.table, tidyr, purrr, stringr, lubridate
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-URL: http://www.bupar.net
+URL: https://www.bupar.net, https://github.com/bupaverse/xesreadR
+BugReports: https://github.com/bupaverse/xesreadR/issues
+
